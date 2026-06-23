@@ -8,143 +8,115 @@
   :root{
     --ink:#161616; --ink-2:#4a4a4a; --ink-3:#7a7a7a;
     --rule:#d9d9d9; --rule-2:#ebebeb;
-    --panel:#fafafa; --track:#e9e9e9; --zone:#161616;
-    --maxw:1000px;
+    --panel:#fafafa; --track:#eee; --zone:#161616;
+    --maxw:1040px;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:#fff;color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:46px 40px 60px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:42px 40px 60px;}
   h1,h2,h3,.wordmark{font-family:Georgia,"Times New Roman",serif;font-weight:700;color:var(--ink);}
 
   .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);font-weight:600;}
-  .wordmark{font-size:34px;line-height:1;letter-spacing:-.01em;margin:6px 0 2px;}
+  .wordmark{font-size:32px;line-height:1;letter-spacing:-.01em;margin:6px 0 2px;}
   .subtitle{font-size:15px;color:var(--ink-2);}
-  .lede{margin-top:14px;font-size:15px;color:var(--ink);}
+  .lede{margin-top:12px;font-size:14.5px;color:var(--ink);max-width:80ch;}
   .lede strong{font-weight:600;}
-  header.head{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:26px;}
-  .section-title{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin:32px 0 12px;}
+  header.head{padding-bottom:16px;margin-bottom:0;}
+  .framing-note{font-size:12px;color:var(--ink-2);line-height:1.5;margin:14px 0 6px;}
 
-  /* ===================== ONE COHESIVE UNIT ===================== */
-  .unit{border:1px solid var(--ink);border-radius:6px;overflow:hidden;}
-  .unit-bar{padding:14px 22px;border-bottom:1px solid var(--rule);background:var(--panel);
-    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .unit-bar .cb-title{font-family:Georgia,serif;font-weight:700;font-size:17px;}
-  .unit-bar .cb-hint{font-size:12.5px;color:var(--ink-3);margin-top:3px;}
-
-  .step-h{font-family:Georgia,serif;font-weight:700;font-size:15px;display:flex;align-items:center;gap:9px;margin-bottom:11px;}
-  .step-n{display:inline-flex;width:23px;height:23px;border-radius:50%;background:var(--ink);color:#fff;
-    font-family:-apple-system,sans-serif;font-size:12px;align-items:center;justify-content:center;font-weight:700;flex:none;
-    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .section-title{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin:30px 0 12px;}
+  .step-h{font-family:Georgia,serif;font-weight:700;font-size:16px;margin-bottom:4px;}
   .step-help{font-size:12.5px;color:var(--ink-2);margin:0 0 13px;line-height:1.5;}
-  .tag{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink-3);color:var(--ink-2);
-    border-radius:3px;padding:1px 6px;font-family:-apple-system,sans-serif;font-weight:600;}
 
-  .top-grid{display:grid;grid-template-columns:1fr 1fr;}
-  .top-left{border-right:1px solid var(--rule);}
-  .top-left .step{padding:18px 20px;}
-  .top-left .step + .step{border-top:1px solid var(--rule);}
-  .top-right{background:var(--panel);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-
-  .pop-grid{display:grid;grid-template-columns:1fr;gap:15px;}
-  .slider .s-ends{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-2);margin-bottom:4px;}
-  .slider .s-ends .now{color:var(--ink);font-weight:600;}
-  input[type=range]{width:100%;accent-color:#161616;cursor:pointer;}
-  .slider .s-cap{font-size:11px;color:var(--ink-3);margin-top:4px;}
-  .field{margin-bottom:16px;}
-  .field-lbl{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:5px;}
-  .field input[type=number]{width:170px;max-width:100%;font:inherit;font-size:16px;padding:8px 11px;border:1px solid var(--ink);border-radius:3px;background:#fff;font-variant-numeric:tabular-nums;}
-
-  .seg-row{display:flex;flex-wrap:wrap;gap:8px;}
-  .seg-btn{font:inherit;font-size:13px;padding:8px 13px;border:1px solid var(--ink);background:#fff;color:var(--ink);
+  /* ============== STICKY TAKE-RATE (stays at top on scroll) ============== */
+  .result-sticky{position:sticky;top:0;z-index:10;background:#fff;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    padding:16px 0;margin-bottom:6px;}
+  .rs-inner{display:flex;flex-wrap:wrap;gap:22px 34px;align-items:center;justify-content:space-between;}
+  .rs-controls{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:flex-end;}
+  .rs-ctl-lbl{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:6px;display:block;}
+  .seg-row{display:flex;flex-wrap:wrap;gap:7px;}
+  .seg-btn{font:inherit;font-size:12.5px;padding:7px 12px;border:1px solid var(--ink);background:#fff;color:var(--ink);
     border-radius:3px;cursor:pointer;line-height:1.15;text-align:left;}
   .seg-btn .seg-range{display:block;font-size:10.5px;font-weight:400;opacity:.65;margin-top:2px;font-variant-numeric:tabular-nums;}
   .seg-btn.sel{background:var(--ink);color:#fff;}
   .seg-btn.sel .seg-range{opacity:.8;}
   .seg-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+  .num-input{width:130px;font:inherit;font-size:16px;padding:7px 10px;border:1px solid var(--ink);border-radius:3px;background:#fff;font-variant-numeric:tabular-nums;}
 
-  /* Result */
-  .result{padding:18px 20px;}
-  .r-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
-  .r-big{font-family:Georgia,serif;font-weight:700;font-size:38px;line-height:1;margin:5px 0 3px;font-variant-numeric:tabular-nums;}
-  .r-sub{font-size:11.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;}
-  .r-pos{font-size:13.5px;color:var(--ink-2);margin-top:7px;}
-  .r-pos b{color:var(--ink);}
-  .r-members{margin-top:11px;font-family:Georgia,serif;font-weight:700;font-size:21px;line-height:1.1;font-variant-numeric:tabular-nums;}
-  .r-members-sub{font-family:-apple-system,sans-serif;font-size:11.5px;font-weight:400;color:var(--ink-3);letter-spacing:.03em;}
-  .rangebar{margin-top:16px;}
-  .rb-track{position:relative;height:28px;background:var(--track);border:1px solid var(--rule);border-radius:4px;overflow:hidden;
+  .rs-result{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+  .r-label{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .r-big{font-family:Georgia,serif;font-weight:700;font-size:38px;line-height:1;margin:3px 0 1px;font-variant-numeric:tabular-nums;}
+  .r-sub{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;}
+  .rs-bar{min-width:230px;flex:1;}
+  .rb-track{position:relative;height:30px;background:var(--track);border:1px solid var(--rule);border-radius:4px;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .rb-zone{position:absolute;top:0;bottom:0;background:var(--zone);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .rb-ends{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-3);margin-top:5px;font-variant-numeric:tabular-nums;}
+  .rb-zone{position:absolute;top:0;bottom:0;background:transparent;border:2.5px solid var(--ink);border-radius:4px;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .rb-ends{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-3);margin-top:4px;font-variant-numeric:tabular-nums;}
   .rb-ends .lo::before{content:"low ";text-transform:uppercase;letter-spacing:.05em;font-size:9px;}
   .rb-ends .hi::after{content:" high";text-transform:uppercase;letter-spacing:.05em;font-size:9px;}
-  .rb-legend{display:flex;gap:16px;align-items:center;font-size:11px;color:var(--ink-2);margin-top:10px;flex-wrap:wrap;}
+  .rb-legend{display:flex;gap:14px;align-items:center;font-size:10.5px;color:var(--ink-2);margin-top:7px;flex-wrap:wrap;}
   .sw{width:16px;height:12px;display:inline-block;border:1px solid var(--rule);vertical-align:middle;margin-right:5px;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .sw-track{background:var(--track);}
-  .sw-zone{background:var(--zone);border-color:var(--zone);}
-  .rationale{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule);font-size:14.5px;color:var(--ink);line-height:1.5;}
-  .caveat{margin-top:12px;font-size:12.5px;color:var(--ink-2);border-left:3px solid var(--ink);padding:6px 0 6px 12px;background:#fff;
+  .sw-zone{background:transparent;border:2px solid var(--ink);}
+  .rs-mem{text-align:right;}
+  .rs-mem .m-big{font-family:Georgia,serif;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums;}
+  .rs-mem .m-sub{display:block;font-size:11px;color:var(--ink-3);letter-spacing:.03em;}
+
+  /* rationale below the sticky */
+  .why{margin-top:12px;}
+  .rationale{font-size:14px;color:var(--ink);line-height:1.5;}
+  .caveat{margin-top:10px;font-size:12.5px;color:var(--ink-2);border-left:3px solid var(--ink);padding:5px 0 5px 12px;background:var(--panel);
     -webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .caveat b{color:var(--ink);}
-  .defensible{margin-top:11px;font-size:12px;color:var(--ink-3);font-style:italic;}
+  .defensible{margin-top:9px;font-size:12px;color:var(--ink-3);font-style:italic;}
 
-  .cmp-row{margin-top:13px;}
-  .cmp-h{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:5px;gap:10px;}
-  .cmp-h .v{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:11.5px;}
-
-  /* Levers (under the result) */
-  .levers{padding:16px 20px;border-top:1px solid var(--rule);}
-  .lev-h{font-family:Georgia,serif;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;margin-bottom:7px;}
-  .lev-help{font-size:12px;color:var(--ink-2);margin:0 0 11px;line-height:1.45;}
-  .lever-row{display:flex;flex-wrap:wrap;gap:8px;}
-  .lever-btn{font:inherit;font-size:12.5px;padding:7px 12px;border:1px solid var(--rule);background:#fff;color:var(--ink-2);
-    border-radius:3px;cursor:pointer;line-height:1.15;text-align:left;}
-  .lever-btn .bx{font-weight:700;margin-right:7px;color:var(--ink-3);}
-  .lever-btn.on{border-style:solid;border-color:var(--ink);color:var(--ink);background:#f1f1f1;}
-  .lever-btn.on .bx{color:var(--ink);}
-  .upside{margin-top:12px;font-size:12.5px;color:var(--ink);border:1px dashed var(--ink-3);border-radius:4px;padding:10px 12px;background:#fff;
-    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .upside .ar{font-weight:700;margin-right:6px;}
-  .upside .small{display:block;color:var(--ink-2);font-size:11.5px;margin-top:4px;}
-
-  /* Campaign (full width below) */
-  .campaign-step{padding:18px 22px;border-top:1px solid var(--rule);}
-  .callout{display:flex;gap:14px;align-items:center;border:1px solid var(--ink);border-radius:5px;padding:13px 16px;margin-bottom:16px;background:var(--panel);
-    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .callout .big2{font-family:Georgia,serif;font-weight:700;font-size:27px;line-height:.95;flex:none;border-right:1px solid var(--rule);padding-right:14px;text-align:center;}
-  .callout .big2 .c-cap{display:block;font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-family:-apple-system,sans-serif;font-weight:700;margin-top:3px;}
-  .callout .c-body{font-size:12.5px;color:var(--ink-2);line-height:1.5;}
-  .callout .c-body b{color:var(--ink);}
-
-  .ch-list{border:1px solid var(--rule);border-radius:5px;overflow:hidden;}
-  .ch-item{display:flex;align-items:center;gap:12px;padding:13px 15px;border-bottom:1px solid var(--rule-2);cursor:pointer;}
-  .ch-item:last-child{border-bottom:none;}
+  /* ============== COMMS ============== */
+  .panel{border:1px solid var(--rule);border-radius:6px;padding:18px 20px;}
+  .cc-label{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:9px;}
+  .cc-help{font-size:12.5px;color:var(--ink-2);margin:10px 0 18px;line-height:1.5;}
+  .ch-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ch-item{border:1px solid var(--rule);border-radius:5px;padding:12px 14px;display:flex;align-items:center;gap:11px;cursor:pointer;}
+  .ch-item.span{grid-column:1 / -1;}
   .ch-item input{margin:0;width:18px;height:18px;accent-color:#161616;flex:none;cursor:pointer;}
   .ch-main{flex:1;min-width:0;}
-  .ch-name{font-weight:600;font-size:15px;color:var(--ink);}
-  .ch-note{display:block;margin-top:3px;font-size:11.5px;line-height:1.4;color:var(--ink-3);font-style:italic;}
-  .cadence{flex:none;margin-left:auto;display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--rule);border-radius:3px;padding:3px 10px;background:#fff;}
-  .cad-token{font-weight:700;font-size:14px;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .ch-name{font-weight:600;font-size:14.5px;color:var(--ink);}
+  .ch-note{display:block;margin-top:3px;font-size:11px;line-height:1.4;color:var(--ink-3);font-style:italic;}
+  .cadence{flex:none;margin-left:auto;display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--rule);border-radius:3px;padding:3px 9px;background:#fff;}
+  .cad-token{font-weight:700;font-size:13.5px;color:var(--ink);font-variant-numeric:tabular-nums;}
   .cad-unit{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);}
-  .ch-item.row-off{opacity:.42;}
+  .ch-item.row-off{opacity:.4;}
   .ch-item.row-off .ch-name{text-decoration:line-through;}
-  .list-help{font-size:12px;color:var(--ink-2);margin:12px 0 0;line-height:1.5;}
+  .list-help{font-size:12px;color:var(--ink-2);margin:13px 0 0;line-height:1.5;}
 
-  .unit-actions{padding:15px 22px;border-top:1px solid var(--rule);display:flex;gap:12px;align-items:center;}
-  .btn{font:inherit;font-size:14px;padding:9px 17px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:3px;cursor:pointer;}
-  .btn.ghost{background:#fff;color:var(--ink);}
+  /* ============== CHECKLIST (prominent) ============== */
+  .check-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+  .lever-btn{font:inherit;font-size:13.5px;padding:13px 15px;border:1px solid var(--rule);background:#fff;color:var(--ink-2);
+    border-radius:5px;cursor:pointer;line-height:1.2;text-align:left;display:flex;align-items:center;gap:11px;}
+  .lever-btn .bx{font-weight:700;font-size:15px;color:var(--ink-3);flex:none;width:20px;height:20px;border:1px solid var(--rule);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;}
+  .lever-btn.on{border-color:var(--ink);color:var(--ink);background:var(--panel);}
+  .lever-btn.on .bx{color:#fff;background:var(--ink);border-color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .upside{margin-top:12px;font-size:12.5px;color:var(--ink);border:1px solid var(--rule);border-radius:5px;padding:10px 13px;background:var(--panel);
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .upside b{font-weight:700;}
+  .upside .small{display:block;color:var(--ink-2);font-size:11.5px;margin-top:4px;}
 
-  .footnotes{margin-top:14px;border-top:1px solid var(--rule-2);padding-top:12px;}
+  .narrative{margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px 28px;}
+  .note{border-top:1px solid var(--rule);padding-top:11px;}
+  .note h3{font-size:13.5px;margin:0 0 5px;}
+  .note p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.5;}
+
+  .footnotes{margin-top:22px;border-top:1px solid var(--rule-2);padding-top:12px;}
   .footnotes p{font-size:12px;color:var(--ink-2);margin:5px 0;line-height:1.45;}
   .footnotes .fn-mark{font-weight:700;color:var(--ink);}
-  .narrative{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;}
-  .note{border-top:1px solid var(--rule);padding-top:12px;}
-  .note h3{font-size:14px;margin:0 0 5px;}
-  .note p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.5;}
-  .disclaimer{margin-top:28px;border-top:1px solid var(--ink);padding-top:14px;font-size:12px;color:var(--ink-2);}
+  .actions{margin-top:18px;display:flex;gap:12px;align-items:center;}
+  .btn{font:inherit;font-size:14px;padding:9px 17px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:3px;cursor:pointer;}
+  .btn.ghost{background:#fff;color:var(--ink);}
+  .disclaimer{margin-top:26px;border-top:1px solid var(--ink);padding-top:14px;font-size:12px;color:var(--ink-2);}
   .disclaimer .src{margin-top:6px;color:var(--ink-3);}
   .print-foot{display:none;}
 
@@ -152,27 +124,17 @@
   @media print{
     .wrap{padding:0;max-width:none;}
     .screen-only{display:none !important;}
+    .result-sticky{position:static;}
     body{font-size:11.5px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
     .wordmark{font-size:26px;}
-    header.head{margin-bottom:16px;padding-bottom:14px;}
-    .section-title{margin:16px 0 8px;}
-    .unit{border-radius:0;}
-    .top-grid{grid-template-columns:1fr;}        /* stack so it flows across pages */
-    .top-left{border-right:none;}
-    .top-right{border-top:1px solid var(--rule);}
-    .top-left .step{padding:12px 16px;}
-    .result,.levers,.campaign-step{padding:12px 16px;}
-    .r-big{font-size:26px;}
-    .r-members{font-size:18px;}
-    /* keep only small blocks intact; never force the whole card onto one page */
-    .result,.levers,.callout,.note,.ch-item,.top-left .step,.narrative{break-inside:avoid;}
+    .r-big{font-size:28px;}
+    .panel,.note,.ch-item,.lever-btn,.result-sticky{break-inside:avoid;}
+    .print-foot{display:block;}
   }
-  @media (max-width:760px){
-    .wrap{padding:32px 20px;}
-    .top-grid{grid-template-columns:1fr;}
-    .top-left{border-right:none;}
-    .top-right{border-top:1px solid var(--rule);}
-    .narrative{grid-template-columns:1fr;}
+  @media (max-width:780px){
+    .wrap{padding:30px 18px;}
+    .ch-list,.check-grid,.narrative{grid-template-columns:1fr;}
+    .rs-mem{text-align:left;}
   }
 </style>
 </head>
@@ -182,74 +144,56 @@
   <header class="head">
     <div class="eyebrow">Partner enablement</div>
     <div class="wordmark">Hike</div>
-    <div class="subtitle">Directional take-rate ranges by funding model, with the engagement campaign behind them.</div>
-    <p class="lede">A guide for setting client expectations and a launch checklist. <strong>Funding model is the biggest swing</strong>, and every range below assumes the full annual program. These are ranges for discussion, not forecasts.</p>
+    <div class="subtitle">Expected take-rate by funding model, and the campaign that drives it.</div>
+    <p class="lede">Set client expectations and plan the launch. <strong>Funding model sets the range. The campaign decides where in it you land.</strong></p>
   </header>
 
-  <div class="section-title">Build a client scenario</div>
-  <section class="unit">
+  <p class="framing-note">Every figure is an annualized take-rate for the launch year, shown as a range for discussion, not a forecast. Funding model fixes the range; the campaign only moves where a client lands inside it, and is never multiplied by the number of touches.</p>
 
-    <div class="unit-bar">
-      <div class="cb-title">The engagement guide</div>
-      <div class="cb-hint">Set the workforce and funding model, check the channels, and read the likely take-rate on the right.</div>
-    </div>
-
-    <div class="top-grid">
-      <div class="top-left">
-        <div class="step">
-          <div class="step-h"><span class="step-n">1</span> The workforce</div>
-          <div class="field">
-            <label class="field-lbl" for="sizeInput">Eligible employees</label>
-            <input type="number" id="sizeInput" min="0" step="50" value="1000" inputmode="numeric" aria-label="Eligible employees">
-          </div>
-          <p class="step-help">Tech comfort and being at a desk make people easier to reach, which only helps when comms are running. On-feet workers are harder to reach but have higher need, so a funded on-site plus physical touchpoints taps real demand.</p>
-          <div class="pop-grid">
-            <div class="slider">
-              <div class="s-ends"><span>Low-tech</span><span class="now" id="techNow">Mixed tech comfort</span><span>Tech-comfortable</span></div>
-              <input type="range" id="techSlider" min="0" max="100" value="50" step="1" aria-label="Tech familiarity">
-            </div>
-            <div class="slider">
-              <div class="s-ends"><span>On-feet</span><span class="now" id="postureNow">Mixed posture</span><span>At-desk</span></div>
-              <input type="range" id="postureSlider" min="0" max="100" value="50" step="1" aria-label="Work posture">
-            </div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-h"><span class="step-n">2</span> Funding model</div>
+  <!-- STICKY TAKE-RATE -->
+  <div class="result-sticky">
+    <div class="rs-inner">
+      <div class="rs-controls">
+        <div>
+          <span class="rs-ctl-lbl">Funding model</span>
           <div class="seg-row" id="modelBtns"></div>
         </div>
-      </div>
-
-      <div class="top-right">
-        <div class="result" id="result"></div>
-        <div class="levers">
-          <div class="lev-h">Launch success checklist</div>
-          <p class="lev-help">Check off each best practice you can put in place. The more boxes you check, the better your client's shot at a strong Hike launch.</p>
-          <div class="lever-row" id="leverBtns"></div>
-          <div id="upside"></div>
+        <div>
+          <span class="rs-ctl-lbl">Eligible employees</span>
+          <input type="number" id="sizeInput" class="num-input" min="0" step="50" value="1000" inputmode="numeric" aria-label="Eligible employees">
         </div>
       </div>
+      <div class="rs-result" id="result"></div>
     </div>
+  </div>
+  <div class="why" id="why"></div>
 
-    <div class="campaign-step">
-      <div class="step-h"><span class="step-n">3</span> The campaign</div>
-      <div id="callout"></div>
-      <div class="ch-list" id="channels"></div>
-      <p class="list-help">Check the channels this client will run. Cadence shown is per campaign.</p>
-    </div>
-
-    <div class="unit-actions screen-only">
-      <button class="btn" id="printBtn" type="button">Print / Save as PDF</button>
-      <button class="btn ghost" id="resetBtn" type="button">Reset to full campaign</button>
-    </div>
-  </section>
-
-  <div class="footnotes">
-    <p><span class="fn-mark">Take-rate ranges are aggregate per funding model</span> and assume the full annual program; take-rate is never scaled by the number of touches.</p>
+  <!-- COMMS -->
+  <div class="section-title">The comms campaign</div>
+  <div class="panel">
+    <div class="cc-label">How many campaigns this year?</div>
+    <div class="seg-row" id="campaignBtns"></div>
+    <p class="cc-help" id="cadenceCopy"></p>
+    <div class="ch-list" id="channels"></div>
   </div>
 
+  <!-- CHECKLIST -->
+  <div class="section-title">Launch success checklist</div>
+  <div class="panel">
+    <div class="check-head"><div class="step-h">Give the launch its best shot</div></div>
+    <p class="step-help">Check off what the client can put in place. Each one improves the odds of a strong start.</p>
+    <div class="check-grid" id="leverBtns"></div>
+    <div id="upside"></div>
+  </div>
+
+  <!-- WHY THIS WORKS -->
   <div class="section-title">Why this works</div>
   <div class="narrative" id="narrative"></div>
+
+  <div class="actions screen-only">
+    <button class="btn" id="printBtn" type="button">Print / Save as PDF</button>
+    <button class="btn ghost" id="resetBtn" type="button">Reset</button>
+  </div>
 
   <div class="disclaimer" id="disclaimer"></div>
   <div class="print-foot disclaimer"></div>
@@ -263,13 +207,12 @@
 const CONFIG = {
   brand: { name: "Hike", accent: "#161616" /* black & white by request */ },
 
-  campaignsPerYear: 2,
-
+  // Locked take-rate ranges per funding model.
   fundingModels: [
-    { id: "employer",   label: "Employer-funded", sub: "100% covered", range: [20, 33], rangeLabel: "20–33%" },
-    { id: "subsidized", label: "Subsidized",       sub: "shared cost",  range: [3, 10],  rangeLabel: "3–10%",
+    { id: "employer",   label: "Employer-funded", range: [20, 33],  rangeLabel: "20–33%" },
+    { id: "subsidized", label: "Subsidized",       range: [3, 15],   rangeLabel: "3–15%",
       caveat: "The range depends heavily on subsidy depth. A ~33% subsidy ($50 of $150) behaves very differently from a small one." },
-    { id: "employee",   label: "Employee-funded",  sub: "member pays",  range: [2, 3],   rangeLabel: "~2.5%" }
+    { id: "employee",   label: "Employee-funded",  range: [0.5, 2.5], rangeLabel: "0.5–2.5%" }
   ],
 
   channels: [
@@ -277,14 +220,14 @@ const CONFIG = {
     { id: "email",  label: "Email",                   recommended: "3",        unit: "per campaign" },
     { id: "sms",    label: "SMS",                     recommended: "3",        unit: "per campaign" },
     { id: "broad",  label: "Broad awareness",         recommended: "activate", unit: "" },
-    { id: "onsite", label: "Funded on-site event(s)", recommended: "≥1",       unit: "per launch",
+    { id: "onsite", label: "Funded onsite event(s)", recommended: "≥1",       unit: "per campaign", span: true,
       note: "Employer-hosted. All travel-logistics costs are invoiced back to the client." }
   ],
 
-  // Physical channels reach everyone regardless of tech/posture.
-  physicalChannels: ["dm", "onsite"],
+  // Likelihood marker = (channels active / total) x campaign weight. Tunable.
+  campaignWeights: { 0: 0, 1: 0.75, 2: 1.0 },
 
-  // Launch best-practice checklist (directional, not baked into the range).
+  // Launch best-practice checklist (directional, layered on top, not in the range math).
   levers: [
     { id: "payroll",    label: "Payroll deduction" },
     { id: "incentives", label: "Incentive & rewards integration" },
@@ -293,12 +236,12 @@ const CONFIG = {
   ],
 
   copy: {
-    fundingEngagement: "Funding model is the biggest swing. After that, engagement is the job: Hike converts once people start, and a funded on-site plus multi-touch comms is the proven playbook.",
-    cadenceFatigue:    "There is a ceiling on touches. Too many in a short window cause fatigue and diminishing returns, so run two campaigns a year with rest between them, varied content, and targeted outreach.",
-    framing:           "Hike is a benefit, not a product. Communicate it more than once and give it shelf space alongside other benefits.",
-    expectations:      "Every range assumes the full annual program. For employer-funded, 20–33% is the favorable, fully-engaged target, not a guarantee for any one client.",
-    defensible:        "This is a conservative, defensible range for discussion, not a forecast.",
-    leverNote:         "Each one improves your client's odds of a strong launch. Directional, layered on top of the range above.",
+    cadenceFatigue:    "One campaign a year is the baseline. Adding a second, well-timed campaign moves you toward the top. There is a ceiling on touches though: too many in a short window cause fatigue and diminishing returns. We help fine-tune cadence, vary the messaging, and target the segments you want to reach.",
+    fundingEngagement: "Funding model is the biggest swing. After that, the job is getting people to start. Hike converts once they do, and a funded onsite with steady comms is what gets them there.",
+    framing:           "Hike is a benefit, not a product. Say it more than once, and give it space next to the other benefits.",
+    expectations:      "Every range is the annualized take-rate for the launch year, based on observed performance. The top is what we have seen from fully engaged clients at launch, not a promise for any one client.",
+    defensible:        "A conservative, defensible range for discussion, not a forecast.",
+    leverNote:         "Each one lifts the odds of a strong start. Directional only, not built into the range.",
     disclaimer:        "Directional estimates for discussion only. Not a guarantee of enrollment, clinical, or financial outcomes."
   }
 };
@@ -308,42 +251,26 @@ const CONFIG = {
    ================================================================ */
 const state = {
   model: "employer",
-  compare: false,
   active: { dm: true, email: true, sms: true, broad: true, onsite: true },
   levers: { payroll: false, incentives: false, mskpathway: false, hsa: false },
-  tech: 50, posture: 50, size: 1000
+  campaigns: 0,
+  size: 1000
 };
 
 const $ = sel => document.querySelector(sel);
 const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 function fmt(x){ const r = Math.round(x * 2) / 2; return Number.isInteger(r) ? String(r) : r.toFixed(1); }
 function modelById(id){ return CONFIG.fundingModels.find(m => m.id === id); }
-function isPhysical(id){ return CONFIG.physicalChannels.includes(id); }
 
-/* Population, corrected model:
-   - tech comfort + at-desk improve REACHABILITY (digital reach), which only
-     pays off when channels that reach the population are active.
-   - on-feet are harder to reach digitally but have higher need (demand),
-     which converts when you reach them (on-site + physical channels). */
-function popVals(){ return { techN: state.tech / 100, postureN: state.posture / 100 }; }
-function digitalReach(){
-  const { techN, postureN } = popVals();
-  return 0.5 + 0.35 * techN + 0.15 * postureN; // 0.5 .. 1.0 (tech dominant, posture minor)
-}
-
-/* Qualitative positioner ONLY: channels count on/off, never scaled by
-   touch counts, levers excluded. */
+/* Positioner: comms only. No comms => bottom; full channels + 2 campaigns => top.
+   Never scaled into a take-rate; it only places the marker inside the locked range. */
 function computeFrac(){
-  const dr = digitalReach();
-  let num = 0, den = 0;
-  CONFIG.channels.forEach(ch => {
-    den += 1;
-    if (state.active[ch.id]) num += (isPhysical(ch.id) ? 1.0 : dr);
-  });
-  const reachScore = den > 0 ? num / den : 0;
-  const onFeet = 1 - popVals().postureN;            // higher need when on-feet
-  const demandBonus = onFeet * reachScore * 0.12;   // only helps once you are reaching them
-  return clamp(reachScore + demandBonus, 0, 1);
+  const total = CONFIG.channels.length;
+  const active = CONFIG.channels.filter(c => state.active[c.id]).length;
+  const channelFrac = total > 0 ? active / total : 0;
+  let w = CONFIG.campaignWeights[state.campaigns];
+  if (w === undefined) w = CONFIG.campaignWeights[1];
+  return clamp(channelFrac * w, 0, 1);
 }
 
 function computeZone(modelId){
@@ -371,40 +298,42 @@ function posLabel(frac){
   return "Lower part";
 }
 
-function listJoin(a){
-  return a.length <= 1 ? (a[0] || "") : a.length === 2 ? a[0] + " and " + a[1] : a.slice(0, -1).join(", ") + ", and " + a[a.length - 1];
-}
-
 function rationale(modelId){
-  const z = computeZone(modelId), m = modelById(modelId), p = popVals();
-  const offs = CONFIG.channels.filter(c => !state.active[c.id]).map(c => c.label);
-  const total = CONFIG.channels.length, nActive = total - offs.length;
-  const lowTech = p.techN < 0.34, techComf = p.techN > 0.66;
-  const onFeet = p.postureN < 0.34, atDesk = p.postureN > 0.66;
-  const onsiteOn = state.active.onsite;
-
-  // Funding model sets the window and where this lands.
-  let s = m.label + " sets the " + m.rangeLabel + " range, and this client lands in the " + posLabel(z.frac).toLowerCase() + ".";
-
-  // Campaign completeness: name what is off and its effect.
-  if (nActive === total) s += " Running the full campaign is what carries it toward the top of that range.";
-  else if (nActive === 0) s += " With no channels running, it sits at the floor.";
-  else s += " " + listJoin(offs) + (offs.length === 1 ? " is" : " are") + " off, so the lighter campaign pulls it down.";
-
-  // Population: reachability (tech + posture) and underlying need.
-  const techWord = techComf ? "tech-comfortable" : (lowTech ? "low-tech" : "mixed-tech");
-  const postureWord = onFeet ? "on-feet" : (atDesk ? "at-desk" : "mixed-posture");
-  s += " The workforce is " + techWord + " and " + postureWord + ", so ";
-  if (lowTech || onFeet) s += onsiteOn ? "it is harder to reach digitally, and the funded on-site is what reaches the demand." : "it is harder to reach, and without a funded on-site you cap how high it can go.";
-  else if (techComf && atDesk) s += "it is easy to reach, though underlying need is lower.";
-  else s += "reach is moderate.";
-
-  if (modelId === "employee") s += " Employee-funded stays low regardless, so comms mainly protect the floor.";
+  const m = modelById(modelId), z = computeZone(modelId);
+  const total = CONFIG.channels.length;
+  const active = CONFIG.channels.filter(c => state.active[c.id]).length;
+  let s = m.label + " sets the " + m.rangeLabel + " range. ";
+  if (state.campaigns === 0 || active === 0) {
+    s += "With nothing running, the client lands at the bottom.";
+  } else {
+    s += active + " of " + total + " comms in place over "
+       + (state.campaigns === 1 ? "one campaign" : "two campaigns")
+       + ", landing in the " + posLabel(z.frac).toLowerCase() + " of the range.";
+    if (active === total && state.campaigns === 1) s += " A second campaign moves it to the top.";
+    else if (active < total && state.campaigns === 2) s += " The rest of the comms moves it to the top.";
+    else if (active < total && state.campaigns === 1) s += " More comms and a second campaign move it to the top.";
+  }
+  if (modelId === "employee") s += " Employee-funded stays low even when fully engaged.";
   return s;
 }
 
 /* ---- Renderers ---- */
-function isSel(id){ return !state.compare && state.model === id; }
+function renderModelBtns(){
+  let h = "";
+  CONFIG.fundingModels.forEach(m => {
+    h += '<button class="seg-btn'+(state.model === m.id ? " sel" : "")+'" type="button" data-model="'+m.id+'">'+m.label
+       + '<span class="seg-range">'+m.rangeLabel+'</span></button>';
+  });
+  $("#modelBtns").innerHTML = h;
+}
+
+function renderCampaignBtns(){
+  let h = "";
+  [1, 2].forEach(n => {
+    h += '<button class="seg-btn'+(state.campaigns === n ? " sel" : "")+'" type="button" data-campaign="'+n+'">'+n+(n === 1 ? " campaign" : " campaigns")+'</button>';
+  });
+  $("#campaignBtns").innerHTML = h;
+}
 
 function renderChannels(){
   let h = "";
@@ -412,7 +341,7 @@ function renderChannels(){
     const on = state.active[ch.id];
     const tok = ch.recommended === "activate" ? "Activate" : ch.recommended;
     const unit = ch.recommended === "activate" ? "" : ch.unit;
-    h += '<label class="ch-item'+(on ? "" : " row-off")+'">'
+    h += '<label class="ch-item'+(ch.span ? " span" : "")+(on ? "" : " row-off")+'">'
        + '<input type="checkbox" data-ch="'+ch.id+'" '+(on ? "checked" : "")+'>'
        + '<span class="ch-main"><span class="ch-name">'+ch.label+'</span>'
        + (ch.note ? '<span class="ch-note">'+ch.note+'</span>' : '') + '</span>'
@@ -423,42 +352,16 @@ function renderChannels(){
   $("#channels").innerHTML = h;
 }
 
-function cadencePhrase(){
-  return CONFIG.channels.map(ch => {
-    if (ch.recommended === "activate") return "broad awareness activated";
-    if (ch.recommended === "≥1") return "1+ funded on-site event";
-    const name = ch.label === "SMS" ? "SMS" : ch.label.toLowerCase();
-    return ch.recommended + " " + name;
-  }).join(", ");
-}
-function renderCallout(){
-  const n = CONFIG.campaignsPerYear;
-  $("#callout").innerHTML =
-      '<div class="callout"><div class="big2">' + n + '&times;<span class="c-cap">per year</span></div>'
-    + '<div class="c-body"><b>' + n + ' campaigns per year</b>, spaced for rest. Each campaign runs the recommended cadence: <b>'
-    + cadencePhrase() + '</b>. The ranges assume both campaigns run at this cadence.</div></div>';
-}
-
-function renderModelBtns(){
-  let h = "";
-  CONFIG.fundingModels.forEach(m => {
-    h += '<button class="seg-btn'+(isSel(m.id) ? " sel" : "")+'" type="button" data-model="'+m.id+'">'+m.label
-       + '<span class="seg-range">'+m.rangeLabel+'</span></button>';
-  });
-  h += '<button class="seg-btn'+(state.compare ? " sel" : "")+'" type="button" data-model="__all">Compare all three</button>';
-  $("#modelBtns").innerHTML = h;
-}
-
 function renderLevers(){
   let h = "";
   CONFIG.levers.forEach(l => {
     const on = state.levers[l.id];
-    h += '<button class="lever-btn'+(on ? " on" : "")+'" type="button" data-lever="'+l.id+'"><span class="bx">'+(on ? "✓" : "+")+'</span>'+l.label+'</button>';
+    h += '<button class="lever-btn'+(on ? " on" : "")+'" type="button" data-lever="'+l.id+'"><span class="bx">'+(on ? "&#10003;" : "")+'</span>'+l.label+'</button>';
   });
   $("#leverBtns").innerHTML = h;
   const labels = CONFIG.levers.filter(l => state.levers[l.id]).map(l => l.label);
   $("#upside").innerHTML = labels.length
-    ? '<div class="upside"><span class="ar">&#10003;</span><b>In place:</b> ' + labels.join(", ") + '.<span class="small">' + CONFIG.copy.leverNote + '</span></div>'
+    ? '<div class="upside"><b>In place:</b> ' + labels.join(", ") + '.<span class="small">' + CONFIG.copy.leverNote + '</span></div>'
     : "";
 }
 
@@ -466,99 +369,88 @@ function zoneBarHTML(z){
   const span = z.hi - z.lo;
   let left = ((z.zlo - z.lo) / span) * 100;
   const width = Math.max(((z.zhi - z.zlo) / span) * 100, 8);
-  left = clamp(left, 0, 100 - width);   // keep the band inside the track
+  left = clamp(left, 0, 100 - width);
   return '<div class="rb-track"><div class="rb-zone" style="left:'+left+'%;width:'+width+'%"></div></div>'
-       + '<div class="rb-ends"><span class="lo">'+fmt(z.lo)+'%</span><span class="hi">'+fmt(z.hi)+'%</span></div>';
+       + '<div class="rb-ends"><span class="lo">'+fmt(z.lo)+'%</span><span class="hi">'+fmt(z.hi)+'%</span></div>'
+       + '<div class="rb-legend"><span><span class="sw sw-track"></span>Full range</span><span><span class="sw sw-zone"></span>Likely zone</span></div>';
 }
 
 function renderResult(){
-  let h = "";
-  if (state.compare){
-    h += '<div class="r-label">Likely take-rate, all three models</div>';
-    h += '<div class="r-sub" style="margin-top:4px">Full launch year &middot; 2 campaigns</div>';
-    h += '<div class="rb-legend" style="margin-top:12px"><span><span class="sw sw-track"></span>Full range</span><span><span class="sw sw-zone"></span>Likely zone</span></div>';
-    CONFIG.fundingModels.forEach(m => {
-      const z = computeZone(m.id);
-      const cmem = memberRange(z);
-      const cmemTxt = cmem ? ' &middot; &#8776; '+cmem.lo.toLocaleString()+'–'+cmem.hi.toLocaleString()+' members' : '';
-      h += '<div class="cmp-row"><div class="cmp-h"><b>'+m.label+'</b><span class="v">full '+m.rangeLabel+' &middot; likely '+fmt(z.zlo)+'–'+fmt(z.zhi)+'%'+cmemTxt+'</span></div>'+zoneBarHTML(z)+'</div>';
-    });
-    h += '<div class="rationale">Same campaign and workforce across all three. Funding model is the biggest swing, which is why the ranges sit so far apart.</div>';
-  } else {
-    const m = modelById(state.model);
-    const z = computeZone(state.model);
-    h += '<div class="r-label">Likely take-rate: '+m.label+'</div>';
-    h += '<div class="r-big">'+fmt(z.zlo)+'–'+fmt(z.zhi)+'%</div>';
-    h += '<div class="r-sub">Full launch year &middot; 2 campaigns</div>';
-    h += '<div class="r-pos"><b>'+posLabel(z.frac)+'</b> of the full '+m.rangeLabel+' range</div>';
-    const mem = memberRange(z);
-    if (mem) h += '<div class="r-members">&#8776; '+mem.lo.toLocaleString()+'–'+mem.hi.toLocaleString()+' members <span class="r-members-sub">of '+state.size.toLocaleString()+' eligible</span></div>';
-    h += '<div class="rangebar">'+zoneBarHTML(z)
-       + '<div class="rb-legend"><span><span class="sw sw-track"></span>Full range</span><span><span class="sw sw-zone"></span>Likely zone (where this client lands)</span></div></div>';
-    h += '<div class="rationale">'+rationale(state.model)+'</div>';
-    if (m.caveat) h += '<div class="caveat"><b>Subsidized note.</b> '+m.caveat+'</div>';
-  }
-  h += '<div class="defensible">'+CONFIG.copy.defensible+'</div>';
+  const m = modelById(state.model);
+  const z = computeZone(state.model);
+  const mem = memberRange(z);
+  const campTxt = state.campaigns === 0 ? "no campaign this year"
+                : state.campaigns + (state.campaigns === 1 ? " campaign this year" : " campaigns this year");
+  let h = '<div><div class="r-label">Likely launch-year take-rate &middot; '+m.label+'</div>'
+        + '<div class="r-big">'+fmt(z.zlo)+'–'+fmt(z.zhi)+'%</div>'
+        + '<div class="r-sub">'+campTxt+'</div></div>';
+  h += '<div class="rs-bar">'+zoneBarHTML(z)+'</div>';
+  if (mem) h += '<div class="rs-mem"><span class="m-big">&#8776; '+mem.lo.toLocaleString()+'–'+mem.hi.toLocaleString()+'</span>'
+              + '<span class="m-sub">members of '+state.size.toLocaleString()+' eligible</span></div>';
   $("#result").innerHTML = h;
+  renderWhy();
+}
+
+function renderWhy(){
+  const m = modelById(state.model);
+  let h = '<div class="rationale">'+rationale(state.model)+'</div>';
+  if (m.caveat) h += '<div class="caveat"><b>Subsidized note.</b> '+m.caveat+'</div>';
+  h += '<div class="defensible">'+CONFIG.copy.defensible+'</div>';
+  $("#why").innerHTML = h;
 }
 
 function renderNarrative(){
   const c = CONFIG.copy;
   $("#narrative").innerHTML =
       '<div class="note"><h3>Funding and engagement</h3><p>'+c.fundingEngagement+'</p></div>'
-    + '<div class="note"><h3>Cadence and fatigue</h3><p>'+c.cadenceFatigue+'</p></div>'
     + '<div class="note"><h3>A benefit, not a product</h3><p>'+c.framing+'</p></div>'
     + '<div class="note"><h3>Set expectations</h3><p>'+c.expectations+'</p></div>';
 }
 
-function renderDisclaimer(){
-  const html = '<strong>Disclaimer.</strong> ' + CONFIG.copy.disclaimer
-             + '<div class="src">Hike, ' + new Date().getFullYear() + '. Ranges are fixed by funding model and assume the full annual program.</div>';
+function renderStatic(){
+  $("#cadenceCopy").textContent = CONFIG.copy.cadenceFatigue;
+  renderNarrative();
+  const html = '<strong>Disclaimer.</strong> ' + CONFIG.copy.disclaimer;
   $("#disclaimer").innerHTML = html;
   document.querySelector(".print-foot").innerHTML = html;
 }
 
-function renderSliderLabels(){
-  const p = popVals();
-  $("#techNow").textContent = p.techN > 0.66 ? "Tech-comfortable" : (p.techN < 0.34 ? "Low-tech" : "Mixed tech comfort");
-  $("#postureNow").textContent = p.postureN > 0.66 ? "At-desk" : (p.postureN < 0.34 ? "On-feet" : "Mixed posture");
-}
-
-function renderAll(){ renderChannels(); renderModelBtns(); renderLevers(); renderResult(); renderSliderLabels(); }
+function renderInputs(){ renderModelBtns(); renderCampaignBtns(); renderChannels(); renderLevers(); }
+function renderAll(){ renderInputs(); renderResult(); }
 
 /* ---- Events ---- */
 function wire(){
-  $("#channels").addEventListener("change", e => {
-    const cb = e.target.closest('input[type=checkbox][data-ch]');
-    if (cb){ state.active[cb.dataset.ch] = cb.checked; renderChannels(); renderResult(); }
-  });
   $("#modelBtns").addEventListener("click", e => {
-    const b = e.target.closest('button[data-model]');
-    if (!b) return;
-    if (b.dataset.model === "__all") state.compare = true; else { state.compare = false; state.model = b.dataset.model; }
-    renderModelBtns(); renderResult();
+    const b = e.target.closest('button[data-model]'); if (!b) return;
+    state.model = b.dataset.model; renderModelBtns(); renderResult();
+  });
+  $("#campaignBtns").addEventListener("click", e => {
+    const b = e.target.closest('button[data-campaign]'); if (!b) return;
+    const v = +b.dataset.campaign;
+    state.campaigns = (state.campaigns === v) ? 0 : v;
+    renderCampaignBtns(); renderResult();
+  });
+  $("#channels").addEventListener("change", e => {
+    const cb = e.target.closest('input[type=checkbox][data-ch]'); if (!cb) return;
+    state.active[cb.dataset.ch] = cb.checked; renderChannels(); renderResult();
   });
   $("#leverBtns").addEventListener("click", e => {
-    const b = e.target.closest('button[data-lever]');
-    if (!b) return;
-    state.levers[b.dataset.lever] = !state.levers[b.dataset.lever];
-    renderLevers();
+    const b = e.target.closest('button[data-lever]'); if (!b) return;
+    state.levers[b.dataset.lever] = !state.levers[b.dataset.lever]; renderLevers();
   });
-  $("#techSlider").addEventListener("input", e => { state.tech = +e.target.value; renderResult(); renderSliderLabels(); });
-  $("#postureSlider").addEventListener("input", e => { state.posture = +e.target.value; renderResult(); renderSliderLabels(); });
   $("#sizeInput").addEventListener("input", e => { state.size = Math.max(0, parseInt(e.target.value, 10) || 0); renderResult(); });
   $("#resetBtn").addEventListener("click", () => {
+    state.model = "employer"; state.campaigns = 0; state.size = 1000;
     Object.keys(state.active).forEach(k => state.active[k] = true);
     Object.keys(state.levers).forEach(k => state.levers[k] = false);
-    state.tech = 50; state.posture = 50; state.size = 1000;
-    $("#techSlider").value = 50; $("#postureSlider").value = 50; $("#sizeInput").value = 1000;
+    $("#sizeInput").value = 1000;
     renderAll();
   });
   $("#printBtn").addEventListener("click", () => window.print());
 }
 
 /* ---- Init ---- */
-renderCallout(); renderNarrative(); renderDisclaimer(); renderAll(); wire();
+renderStatic(); renderAll(); wire();
 </script>
 </body>
 </html>
