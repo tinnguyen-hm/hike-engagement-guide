@@ -80,11 +80,14 @@
   .cc-help{font-size:12.5px;color:var(--ink-2);margin:10px 0 18px;line-height:1.5;}
   .ch-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .ch-item{border:1px solid var(--rule);border-radius:5px;padding:12px 14px;display:flex;align-items:center;gap:11px;cursor:pointer;}
-  .ch-item.span{grid-column:1 / -1;}
+  .ch-item.span{grid-column:1 / -1;align-items:flex-start;}
   .ch-item input{margin:0;width:18px;height:18px;accent-color:#161616;flex:none;cursor:pointer;}
   .ch-main{flex:1;min-width:0;}
-  .ch-name{font-weight:600;font-size:14.5px;color:var(--ink);}
-  .ch-note{display:block;margin-top:3px;font-size:11px;line-height:1.4;color:var(--ink-3);font-style:italic;}
+  .ch-name{display:block;font-weight:600;font-size:14.5px;color:var(--ink);}
+  .ch-note{display:block;margin-top:7px;font-size:11px;line-height:1.4;color:var(--ink-3);font-style:italic;}
+  .ch-price{display:inline-flex;align-items:baseline;gap:9px;margin-top:8px;border:1px solid var(--rule);border-radius:4px;padding:5px 11px;}
+  .pr-head{font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);font-weight:700;}
+  .pr-v{font-size:13px;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;}
   .cadence{flex:none;margin-left:auto;display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--rule);border-radius:3px;padding:3px 9px;background:#fff;}
   .cad-token{font-weight:700;font-size:13.5px;color:var(--ink);font-variant-numeric:tabular-nums;}
   .cad-unit{font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);}
@@ -221,7 +224,12 @@ const CONFIG = {
     { id: "sms",    label: "SMS",                     recommended: "3",        unit: "per campaign" },
     { id: "broad",  label: "Broad awareness",         recommended: "activate", unit: "" },
     { id: "onsite", label: "Funded onsite event(s)", recommended: "≥1",       unit: "per campaign", span: true,
-      note: "Employer-hosted. All travel-logistics costs are invoiced back to the client." }
+      pricing: {
+        employer: { value: "Included",
+                    note: "Onsites are included for employer-funded programs." },
+        other:    { value: "$5K min / event",
+                    note: "Hosting an onsite requires a $5,000 minimum per event to cover some in-person orders. Travel and logistics costs are invoiced back to the client." }
+      } }
   ],
 
   // Likelihood marker = (channels active / total) x campaign weight. Tunable.
@@ -335,16 +343,22 @@ function renderCampaignBtns(){
   $("#campaignBtns").innerHTML = h;
 }
 
+function priceHTML(p){
+  return '<span class="ch-price"><span class="pr-head">Onsite pricing</span><span class="pr-v">'+p.value+'</span></span>';
+}
 function renderChannels(){
   let h = "";
   CONFIG.channels.forEach(ch => {
     const on = state.active[ch.id];
     const tok = ch.recommended === "activate" ? "Activate" : ch.recommended;
     const unit = ch.recommended === "activate" ? "" : ch.unit;
+    const p = ch.pricing ? ch.pricing[state.model === "employer" ? "employer" : "other"] : null;
+    const noteText = p ? p.note : ch.note;
     h += '<label class="ch-item'+(ch.span ? " span" : "")+(on ? "" : " row-off")+'">'
        + '<input type="checkbox" data-ch="'+ch.id+'" '+(on ? "checked" : "")+'>'
        + '<span class="ch-main"><span class="ch-name">'+ch.label+'</span>'
-       + (ch.note ? '<span class="ch-note">'+ch.note+'</span>' : '') + '</span>'
+       + (p ? priceHTML(p) : '')
+       + (noteText ? '<span class="ch-note">'+noteText+'</span>' : '') + '</span>'
        + '<span class="cadence"><span class="cad-token">'+tok+'</span>'
        + (unit ? '<span class="cad-unit">'+unit+'</span>' : '') + '</span>'
        + '</label>';
@@ -422,7 +436,7 @@ function renderAll(){ renderInputs(); renderResult(); }
 function wire(){
   $("#modelBtns").addEventListener("click", e => {
     const b = e.target.closest('button[data-model]'); if (!b) return;
-    state.model = b.dataset.model; renderModelBtns(); renderResult();
+    state.model = b.dataset.model; renderModelBtns(); renderChannels(); renderResult();
   });
   $("#campaignBtns").addEventListener("click", e => {
     const b = e.target.closest('button[data-campaign]'); if (!b) return;
